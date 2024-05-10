@@ -1,20 +1,20 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: docker-swarm-visualizer
+  name: docker-swarm
 spec:
   selector:
     matchLabels:
-      app: docker-swarm-visualizer
+      app: docker-swarm
   replicas: 1 # tells deployment to run 2 pods matching the template
   template:
     metadata:
       labels:
-        app: docker-swarm-visualizer
+        app: docker-swarm
         ssd.admissionreview.accountname: dev
         ssd.admissionreview.appname: docker
     spec:
       automountServiceAccountToken: false
       containers:
-      - name: docker-swarm-visualizer
+      - name: docker-swarm
         image: opsmx11/docker-swarm:9839424-405
